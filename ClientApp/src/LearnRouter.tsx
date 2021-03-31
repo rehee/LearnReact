@@ -58,13 +58,13 @@ export class Base extends React.Component {
               <Container>
                 <ul>
                   <li>
-                    <NavLink tag={Link} className="text-dark" to="/about">About</NavLink>
+                    <NavLink tag={Link} className="text-dark" to="about">About</NavLink>
 
                     {/*<a href="./about" onClick={e => console.log(e)}> About</a>*/}
                   </li>
                   <li>
-                    <NavLink tag={Link} className="text-dark" to="/home">Home</NavLink>
-                  {/*<a href="./home" onClick={e => console.log(e)}> Home</a>*/}
+                    <NavLink tag={Link} className="text-dark" to="home">Home</NavLink>
+                    {/*<a href="./home" onClick={e => console.log(e)}> Home</a>*/}
 
                   </li>
                 </ul>
@@ -72,19 +72,20 @@ export class Base extends React.Component {
 
 
 
-            <div>
-              <p>-----------</p>
-              <Container>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/home' component={Home} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/page' component={Home} />
-                <Route exact path='/page/home' component={Home} />
-                <Route exact path='/page/about' component={About} />
-              </Container>
+              <div>
+                <p>-----------</p>
+                <Container>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='**/LearnReact' component={Home} />
+                  <Route exact path='**/home' component={Home} />
+                  <Route exact path='**/about' component={About} />
+                  <Route exact path='**/page' component={Home} />
+                  <Route exact path='**/page/home' component={Home} />
+                  <Route exact path='**/page/about' component={About} />
+                </Container>
 
 
-            </div>
+              </div>
 
             </div>
           </React.Fragment>
