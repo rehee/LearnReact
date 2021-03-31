@@ -462,18 +462,19 @@ var Base = /** @class */ (function (_super) {
                         React.createElement(reactstrap_1.Container, null,
                             React.createElement("ul", null,
                                 React.createElement("li", null,
-                                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/about" }, "About")),
+                                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "about" }, "About")),
                                 React.createElement("li", null,
-                                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/home" }, "Home")))),
+                                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "home" }, "Home")))),
                         React.createElement("div", null,
                             React.createElement("p", null, "-----------"),
                             React.createElement(reactstrap_1.Container, null,
                                 React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: Home }),
-                                React.createElement(react_router_dom_1.Route, { exact: true, path: '/home', component: Home }),
-                                React.createElement(react_router_dom_1.Route, { exact: true, path: '/about', component: About }),
-                                React.createElement(react_router_dom_1.Route, { exact: true, path: '/page', component: Home }),
-                                React.createElement(react_router_dom_1.Route, { exact: true, path: '/page/home', component: Home }),
-                                React.createElement(react_router_dom_1.Route, { exact: true, path: '/page/about', component: About }))))))));
+                                React.createElement(react_router_dom_1.Route, { exact: true, path: '**/LearnReact', component: Home }),
+                                React.createElement(react_router_dom_1.Route, { exact: true, path: '**/home', component: Home }),
+                                React.createElement(react_router_dom_1.Route, { exact: true, path: '**/about', component: About }),
+                                React.createElement(react_router_dom_1.Route, { exact: true, path: '**/page', component: Home }),
+                                React.createElement(react_router_dom_1.Route, { exact: true, path: '**/page/home', component: Home }),
+                                React.createElement(react_router_dom_1.Route, { exact: true, path: '**/page/about', component: About }))))))));
     };
     return Base;
 }(React.Component));
