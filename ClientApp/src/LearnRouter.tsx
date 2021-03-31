@@ -58,12 +58,12 @@ export class Base extends React.Component {
               <Container>
                 <ul>
                   <li>
-                    <NavLink tag={Link} className="text-dark" to="./about">About</NavLink>
+                    <NavLink tag={Link} className="text-dark" to="about">About</NavLink>
 
                     {/*<a href="./about" onClick={e => console.log(e)}> About</a>*/}
                   </li>
                   <li>
-                    <NavLink tag={Link} className="text-dark" to="./home">Home</NavLink>
+                    <NavLink tag={Link} className="text-dark" to="home">Home</NavLink>
                     {/*<a href="./home" onClick={e => console.log(e)}> Home</a>*/}
 
                   </li>
