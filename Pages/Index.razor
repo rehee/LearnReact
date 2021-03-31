@@ -1,12 +1,20 @@
 ﻿@page "/"
+@page "/{area}"
+@page "/page"
+@page "/page/{area}"
+@code{
+  [Parameter]
+  public string area { get; set; }
+}
 
 <p>--------------------</p>
-<div  @ref="example" id="root">
+<div @ref="example" id="root">
 
 </div>
 <p>--------------------</p>
 
 <input type="button" name="name" value="click" @onclick="click" />
+<input type="button" name="name" value="render router" @onclick="RenderBase" />
 
 @code{
   [JSInvokable]

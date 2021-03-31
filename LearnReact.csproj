@@ -26,10 +26,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ClientApp\src\CSCallback.ts" />
+    <None Remove="ClientApp\src\LearnRouter.tsx" />
+    <None Remove="ClientApp\src\store\configureStore.ts" />
     <None Remove="Commons\List.tsx" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\CSCallback.ts" />
+    <TypeScriptCompile Include="ClientApp\src\LearnRouter.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\store\configureStore.ts" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
@@ -43,7 +47,7 @@
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
      <Exec WorkingDirectory="$(SpaRoot)" Command="npm run webpack" />
   </Target>
-  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' != 'Debug' ">
+  <Target Name="BuildNoDebug" BeforeTargets="Build" Condition=" '$(Configuration)' != 'Debug' ">
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm run webpack" />
   </Target>

@@ -20,6 +20,7 @@ module.exports = {
       }
     ],
   },
+  devtool: 'source-map',
   output: {
     //filename: '[name].js',
     path: path.resolve(__dirname, '../wwwroot/dist')
@@ -27,7 +28,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      name:'vendor'
+      name: 'vendor'
     },
   },
 }

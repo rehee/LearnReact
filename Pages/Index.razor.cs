@@ -47,6 +47,15 @@ namespace LearnReact.Pages
           return count;
         }), count);
     }
+
+    public async Task RenderBase()
+    {
+      await js.Callback("RenderBase", "root", JS.Func<int, int>(b =>
+      {
+        count = b + 1;
+        return count;
+      }), count);
+    }
   }
 
 }

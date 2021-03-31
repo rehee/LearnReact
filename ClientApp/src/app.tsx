@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { HW } from './Component';
 import { Ajax } from './AjaxCall';
 import { CSCallback, dotNetHandler } from './CSCallback';
-
+import { Base } from './LearnRouter';
 
 
 function Demo() {
@@ -38,8 +38,12 @@ const render = (id: string, obj: any) => {
 (window as any)['RenderReact'] = render;
 
 (window as any)['RenderHW'] = (id: string, cb: dotNetHandler, nameInput?: any) => {
-  ReactDOM.render(<HW {...{ name: (nameInput ? nameInput : "world"), callback: (b, f) => CSCallback<number,number>(cb)(b).then(f) }} />, document.getElementById(id));
+  ReactDOM.render(<HW {...{ name: (nameInput ? nameInput : "world"), callback: (b, f) => CSCallback<number, number>(cb)(b).then(f) }} />, document.getElementById(id));
 }
+(window as any)['RenderBase'] = (id: string, cb: dotNetHandler, nameInput?: any) => {
+  ReactDOM.render(<Base />, document.getElementById(id));
+}
+
 
 function FindReact(dom, traverseUp = 0) {
   const key = Object.keys(dom).find(key => key.startsWith("__reactInternalInstance$"));
@@ -80,3 +84,21 @@ function FindReact(dom, traverseUp = 0) {
   //var componentsArray = React.addons.TestUtils.findAllInRenderedTree(window.searchRoot, function () { return true; });
   console.log(myComp);
 }
+
+// 重写方法
+const _wr = type => {
+  const origin = history[type];
+  return function () {
+    const event = new Event(type) as any;
+    event.arguments = arguments;
+    window.dispatchEvent(event);
+    return origin.apply(this, arguments);
+  }
+}
+//重写方法
+history.pushState = _wr('pushState')
+history.replaceState = _wr('replaceState')
+//实现监听
+//window.addEventListener('replaceState', function (e) {
+//  console.log('THEY DID IT AGAIN! replaceState 111111')
+//})
