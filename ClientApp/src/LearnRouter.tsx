@@ -90,5 +90,6 @@ export class Base extends React.Component {
           </React.Fragment>
         </ConnectedRouter>
       </Provider >);
+
   }
 }

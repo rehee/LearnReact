@@ -270,6 +270,7 @@ Aol3/ngapp/**/*.js
 *.map
 dist/
 script-code/**/*.js
+ClientApp/src/**/*.js
 **/Logs/
 # Note: VisualStudio gitignore rules may also be relevant
 
