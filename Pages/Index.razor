@@ -1,0 +1,17 @@
+﻿@page "/"
+
+<p>--------------------</p>
+<div  @ref="example" id="root">
+
+</div>
+<p>--------------------</p>
+
+<input type="button" name="name" value="click" @onclick="click" />
+
+@code{
+  [JSInvokable]
+  public static Task<int[]> ReturnArrayAsync()
+  {
+    return Task.FromResult(new int[] { 1, 2, 3 });
+  }
+}
