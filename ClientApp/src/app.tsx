@@ -2,7 +2,7 @@
 import * as ReactDOM from 'react-dom';
 import { HW } from './Component';
 import { Ajax } from './AjaxCall';
-import { CSCallback } from './CSCallback';
+import { CSCallback, dotNetHandler } from './CSCallback';
 
 
 
@@ -37,8 +37,8 @@ const render = (id: string, obj: any) => {
 };
 (window as any)['RenderReact'] = render;
 
-(window as any)['RenderHW'] = (id: string, cb: any, nameInput?: any) => {
-  ReactDOM.render(<HW {...{ name: (nameInput ? nameInput : "world"), callback: (b, f) => CSCallback(cb)(b, f) }} />, document.getElementById(id));
+(window as any)['RenderHW'] = (id: string, cb: dotNetHandler, nameInput?: any) => {
+  ReactDOM.render(<HW {...{ name: (nameInput ? nameInput : "world"), callback: (b, f) => CSCallback<number,number>(cb)(b).then(f) }} />, document.getElementById(id));
 }
 
 function FindReact(dom, traverseUp = 0) {
